@@ -30,9 +30,28 @@ The extension provides 4 levels of logging that the end user can choose to outpu
 
 The example below shows how to set debug logs:
 
-if ($this->_debug){
-        Mage::helper('wsalogger/log')->postDebug('<ExtensionName>', '<Descriptive Name for what you are logging>', '<Variable>');
+class Webshopapps_SpecialDiscountExtension
+{
+  public function pointsCalculator($points){
+
+     //Determine if logging is enabled
+     $debug = Mage::helper('wsalogger')->isDebug('Webshopapps_SpecialDiscountExtension');
+     $discount = 0;
+
+      if($points >= 40 && < 60){
+         $discount = 10;
+       }
+      else{
+         $discount = 5;
+       }
+
+      //if logging is enabled then log out the discount amount
+      if ($debug){
+        Mage::helper('wsalogger/log')->postDebug('id', 'Discount Amount', $discount);
+       }
+  }
 }
+
 
 Information on how to enable, configure and view the logs from the logger in Magento Admin is available on our wiki
 
