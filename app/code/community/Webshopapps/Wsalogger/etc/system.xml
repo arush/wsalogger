@@ -133,7 +133,7 @@
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
 						</empty_system_log> -->
-					<!--  	<view_all_extns translate="label">
+					 	<view_all_extns translate="label">
 							<label>View all Extensions</label>
 							<frontend_type>select</frontend_type>
 							<source_model>adminhtml/system_config_source_yesno</source_model>
@@ -142,7 +142,7 @@
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
 							<comment>Use Logger in non-WebShopApps extensions (if supported)</comment>
-						</view_all_extns>  -->
+						</view_all_extns>  
 					</fields>
 				</wsalog>
 				<wsamodulelog>
