@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Wsalogger by webshopapps</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Wsalogger</h1>
+        <p>WebShopApps Magento Logger Utility</p>
+        <p class="view"><a href="https://github.com/webshopapps/wsalogger">View the Project on GitHub <small>webshopapps/wsalogger</small></a></p>
+        <ul>
+          <li><a href="https://github.com/webshopapps/wsalogger/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/webshopapps/wsalogger/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/webshopapps/wsalogger">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>The WebShopApps logger is an in-admin logging facility for our Magento extensions.</p>
+
+<p>The logger was developed to enable our customers to:</p>
+
+<ul>
+<li>Get some re-assurance their extensions are working correctly</li>
+<li>Get some key indicators that help resolve issues and links to support docs to help resolve any problems caused by  misconfiguration of the extension.</li>
+</ul><p>The logger is very simple to integrate into your own extensions to provide your customers with the benefits it provides ours and its key features are:</p>
+
+<ol>
+<li>Ability to debug on a per extension basis</li>
+<li>Dedicated log panel within admin, no need to open log files</li>
+<li>Ability to set logging level to show more/less logs</li>
+<li>Log to admin, file system and/or via email</li>
+<li>Ability to switch off when in production, will not affect performance at all</li>
+<li>Periodic Cron job which clears out WebShopApps extension related logs from the database</li>
+</ol><p><strong>Installation steps</strong></p>
+
+<ol>
+<li>Switch off the Magento Compiler if enabled under System-&gt;Tools-&gt;Compilation</li>
+<li>Ensure Cache is disabled in Admin</li>
+<li>Copy the app directory into your Magento base directory overwriting any files. *
+Note: This does not overwrite any core files~</li>
+<li>Logout of your admin and log back into your admin to refresh Magento admin permissions so you can access the newly installed logger.</li>
+</ol><p><strong>How to use in your own extension code</strong></p>
+
+<p>The extension provides 4 levels of logging that the end user can choose to output in their Magento admin panel which are Critical, Warning, Info and Debug.</p>
+
+<p>The example below shows how to set debug logs:</p>
+
+<pre><code>class Webshopapps_SpecialDiscountExtension
+{
+  public function pointsCalculator($points){
+
+     //Determine if logging is enabled
+     $debug = Mage::helper('wsalogger')-&gt;isDebug('Webshopapps_SpecialDiscountExtension');
+     $discount = 0;
+
+      if($points &gt;= 40 &amp;&amp; &lt; 60){
+         $discount = 10;
+       }
+      else{
+         $discount = 5;
+       }
+
+      //if logging is enabled then log out the discount amount
+      if ($debug){
+        Mage::helper('wsalogger/log')-&gt;postDebug('id', 'Discount Amount', $discount);
+       }
+  }
+}
+
+</code></pre>
+
+<p>Information on how to enable, configure and view the logs from the logger in Magento Admin is available on our <a href="http://wiki.webshopapps.com/webshopapps-logger">wiki</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/webshopapps">webshopapps</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
