@@ -1,0 +1,27 @@
+The WebShopApps logger is an in-admin logging facility for our Magento extensions.
+
+The logger was developed to enable our customers to:
+
+Get some re-assurance their extensions are working correctly
+Get some key indicators that help resolve issues and links to support docs to help resolve any problems caused by misconfiguration of the extension.
+
+The logger is very simple to integrate into your own extensions to provide your customers with the benefits it provides ours and its key features are:
+
+1. Ability to debug on a per extension basis
+2. Dedicated log panel within admin, no need to open log files
+3. Ability to set logging level to show more/less logs
+4.  Log to admin, file system and/or via email
+5.  Runs asynchronously, reducing impact on performance to a minimum
+6. Ability to switch off when in production, will not affect performance at all
+7. Periodic Cron job which clears out WebShopApps extension related logs from the database
+
+Installation steps
+
+Switch off the Magento Compiler if enabled under System->Tools->Compilation
+Ensure Cache is disabled in Admin
+Copy the app directory into your Magento base directory overwriting any files. *
+Note: This does not overwrite any core files~
+Logout of your admin and log back into your admin to refresh Magento admin permissions so you can access the newly installed logger.
+
+
+
