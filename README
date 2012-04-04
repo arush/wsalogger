@@ -11,9 +11,8 @@ The logger is very simple to integrate into your own extensions to provide your 
 2. Dedicated log panel within admin, no need to open log files
 3. Ability to set logging level to show more/less logs
 4. Log to admin, file system and/or via email
-5. Runs asynchronously, reducing impact on performance to a minimum
-6. Ability to switch off when in production, will not affect performance at all
-7. Periodic Cron job which clears out WebShopApps extension related logs from the database
+5. Ability to switch off when in production, will not affect performance at all
+6. Periodic Cron job which clears out WebShopApps extension related logs from the database
 
 Installation steps
 
