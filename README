@@ -30,6 +30,8 @@ The extension provides 4 levels of logging that the end user can choose to outpu
 
 The example below shows how to set debug logs:
 
+$this->_debug = Mage::helper('wsalogger')->isDebug('<ExtensionName>');
+
 if ($this->_debug){
         Mage::helper('wsalogger/log')->postDebug('<ExtensionName>', '<Descriptive Name for what you are logging>', '<Variable>');
 }
