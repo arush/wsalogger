@@ -33,3 +33,7 @@ The example below shows how to set debug logs:
 if ($this->_debug){
         Mage::helper('wsalogger/log')->postDebug('<ExtensionName>', '<Descriptive Name for what you are logging>', '<Variable>');
 }
+
+Information on how to enable, configure and view the logs from the logger in Magento Admin is available on our wiki
+
+http://wiki.webshopapps.com/webshopapps-logger
