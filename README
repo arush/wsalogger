@@ -10,18 +10,26 @@ The logger is very simple to integrate into your own extensions to provide your 
 1. Ability to debug on a per extension basis
 2. Dedicated log panel within admin, no need to open log files
 3. Ability to set logging level to show more/less logs
-4.  Log to admin, file system and/or via email
-5.  Runs asynchronously, reducing impact on performance to a minimum
+4. Log to admin, file system and/or via email
+5. Runs asynchronously, reducing impact on performance to a minimum
 6. Ability to switch off when in production, will not affect performance at all
 7. Periodic Cron job which clears out WebShopApps extension related logs from the database
 
 Installation steps
 
-Switch off the Magento Compiler if enabled under System->Tools->Compilation
-Ensure Cache is disabled in Admin
-Copy the app directory into your Magento base directory overwriting any files. *
-Note: This does not overwrite any core files~
-Logout of your admin and log back into your admin to refresh Magento admin permissions so you can access the newly installed logger.
+1. Switch off the Magento Compiler if enabled under System->Tools->Compilation
+2. Ensure Cache is disabled in Admin
+3. Copy the app directory into your Magento base directory overwriting any files. *
+   Note: This does not overwrite any core files~
+4. Logout of your admin and log back into your admin to refresh Magento admin permissions so you can access the newly installed logger.
 
 
+How to use in your own extension code
 
+The extension provides 4 levels of logging that the end user can choose to output in their Magento admin panel which are Critical, Warning, Info and Debug.
+
+The example below shows how to set debug logs:
+
+if ($this->_debug){
+        Mage::helper('wsalogger/log')->postDebug('<ExtensionName>', '<Descriptive Name for what you are logging>', '<Variable>');
+}
